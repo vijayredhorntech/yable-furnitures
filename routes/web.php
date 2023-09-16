@@ -25,9 +25,34 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 |
 */
 Route::get('/home', function () {
-
     return view('homePage');
 })->name('home');
+
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+Route::get('/store', function () {
+    return view('store');
+})->name('store');
+Route::get('/productDetail', function () {
+    return view('productDetail');
+})->name('productDetail');
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
+Route::get('/wishlist', function () {
+    return view('wishlist');
+})->name('wishlist');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 
 

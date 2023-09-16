@@ -18,12 +18,41 @@
 
 
 <script>
-
     function toggleNavbar() {
         const navBar = document.getElementById('navBar');
         navBar.classList.toggle('hidden');
     }
 
+
+    function changeImage() {
+        // Get the clicked element (this refers to the clicked <a> element)
+        let clickedElement = event.currentTarget;
+        let bigImage = document.querySelector('.big-image');
+        let videoSection = document.querySelector('.videoSection');
+        let bigVideo = document.querySelector('.videoSrc');
+
+        // Get the value of the data-image-src attribute from the clicked element
+        let newSrc = clickedElement.getAttribute('data-image-src');
+
+        //check src has video link or image link
+        if(newSrc.includes('mp4')){
+            bigVideo.src = newSrc;
+            bigImage.style.display = 'none';
+            videoSection.style.display = 'block';
+            videoSection.currentTime = 0;
+            videoSection.play();
+
+        }
+        else{
+            bigImage.style.display = 'block';
+            videoSection.style.display = 'none';
+            bigImage.src = newSrc;
+            videoSection.pause();
+        }
+
+
+
+    }
 </script>
 </body>
 </html>

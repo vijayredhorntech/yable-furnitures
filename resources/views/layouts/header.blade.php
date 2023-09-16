@@ -6,23 +6,26 @@
 
         <div class="lg:h-full md:h-full h-max lg:w-full md:w-full w-[100vw]  w-max flex lg:block md:block lg:static md:static absolute left-0 top-24 lg:block md:block hidden " id="navBar">
             <ul class="flex lg:flex-row md:flex-row flex-col justify-center mx-auto lg:w-max md:w-max w-[100vw] h-full gap-8 lg:text-lg md:text-md lg:p-0 md:p-0 p-6 font-semibold lg:bg-transparent md:bg-transparent bg-black lg:text-black md:text-black text-white">
-                <a href="" class="my-auto"> <li>HOME</li></a>
-                <a href="" class="my-auto"> <li>ABOUT</li></a>
-                <a href="" class="my-auto"> <li>PRODUCTS</li></a>
-                <a href="" class="my-auto"> <li>SERVICES</li></a>
-                <a href="" class="my-auto"> <li>CONTACT US</li></a>
+                <a href="{{route('home')}}" class="my-auto hover:border-b-[1px] hover:border-b-black transition ease-in duration-300"> <li>HOME</li></a>
+                <a href="{{route('about')}}" class="my-auto hover:border-b-[1px] hover:border-b-black transition ease-in duration-300"> <li>ABOUT</li></a>
+                <a href="{{route('store')}}" class="my-auto hover:border-b-[1px] hover:border-b-black transition ease-in duration-300"> <li>PRODUCTS</li></a>
+                <a href="" class="my-auto hover:border-b-[1px] hover:border-b-black transition ease-in duration-300"> <li>SERVICES</li></a>
+                <a href="{{route('contact')}}" class="my-auto hover:border-b-[1px] hover:border-b-black transition ease-in duration-300"> <li>CONTACT US</li></a>
             </ul>
         </div>
 
 
-        <div class="h-full w-max flex my-auto lg:flex md:flex hidden">
-            <button class="bg-yellow-500 px-4 py-4 h-max my-auto lg:text-md md:text-sm font rounded-full font-bold w-max">BOOK YOUR ORDER</button>
-        </div>
-
-        <div class="h-full  flex lg:hidden md:hidden sm:block block" style="align-items: center">
-            <button class="bg-yellow-500 px-4 py-2 text-white text-md font rounded-md font-bold my-auto" id="navToggleButton" onclick="toggleNavbar()">
+        <div class="h-full w-max flex my-auto flex gap-2">
+            <a href="{{route('login')}}" class="my-auto"><button class="bg-white border-[1px] text-black hover:bg-black hover:text-white transition ease-in duration-200 border-black  px-3 py-2 h-max my-auto lg:text-md md:text-sm font rounded-full font-bold w-max"><i class="fa fa-user"></i></button>
+            </a>
+            <a href="{{route('cart')}}" class="my-auto"><button class="bg-white border-[1px] text-black hover:bg-black hover:text-white transition ease-in duration-200 border-black  px-3 py-2 h-max my-auto lg:text-md md:text-sm font rounded-full font-bold w-max"><i class="fa fa-shopping-cart"></i></button>
+            </a>
+            <a href="{{route('wishlist')}}" class="my-auto"><button class="bg-white border-[1px] text-black hover:bg-black hover:text-white transition ease-in duration-200 border-black  px-3 py-2 h-max my-auto lg:text-md md:text-sm font rounded-full font-bold w-max"><i class="fa fa-heart"></i></button>
+            </a>
+            <a href="" class="my-auto"><button class="bg-white border-[1px] text-black hover:bg-black hover:text-white transition ease-in duration-200 border-black  px-4 py-4 h-max my-auto lg:text-md md:text-sm font rounded-full font-bold w-max lg:block hidden">BOOK YOUR ORDER</button>
+            </a>
+            <button class="bg-white border-[1px] text-black hover:bg-black hover:text-white transition ease-in duration-200 border-black  px-4 py-2 text-md font rounded-md font-bold my-auto lg:hidden md:hidden block" id="navToggleButton" onclick="toggleNavbar()">
                 <i class="fa fa-bars"></i>
             </button>
         </div>
-
     </div>
