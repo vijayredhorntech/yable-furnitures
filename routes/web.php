@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LanguageController;
 use App\Http\Controllers\Dashboard\PermissionController;
@@ -50,11 +51,9 @@ Route::get('/cart', function () {
 Route::get('/wishlist', function () {
     return view('wishlist');
 })->name('wishlist');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-
+//Route::get('/login', function () {
+//    return view('login');
+//})->name('login');
 
 
 Route::middleware(['splade'])->group(function () {
@@ -108,13 +107,22 @@ Route::middleware(['splade'])->group(function () {
             Route::put('/update', [SettingController::class, 'update'])->name('update');
         });
 
-        Route::prefix('plugins')->name('plugins.')->group(function(){
-            Route::get('/',[PluginController::class,'index'])->name('index');
-            Route::get('/install',[PluginController::class,'create'])->name('create');
-            Route::post('/install',[PluginController::class,'store'])->name('store');
-            Route::post('/{plugin}/activate',[PluginController::class,'activate'])->name('activate');
-            Route::post('/{plugin}/deactivate',[PluginController::class,'deactivate'])->name('deactivate');
-            Route::post('/{plugin}/delete',[PluginController::class,'delete'])->name('delete');
+        Route::prefix('plugins')->name('plugins.')->group(function () {
+            Route::get('/', [PluginController::class, 'index'])->name('index');
+            Route::get('/install', [PluginController::class, 'create'])->name('create');
+            Route::post('/install', [PluginController::class, 'store'])->name('store');
+            Route::post('/{plugin}/activate', [PluginController::class, 'activate'])->name('activate');
+            Route::post('/{plugin}/deactivate', [PluginController::class, 'deactivate'])->name('deactivate');
+            Route::post('/{plugin}/delete', [PluginController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('category')->name('category.')->group(function () {
+            Route::get('/', [CategoryController::class, 'index'])->name('index');
+            Route::get('/create', [CategoryController::class, 'create'])->name('create');
+            Route::post('/store', [CategoryController::class, 'store'])->name('store');
+            Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
+            Route::put('/{category}/update', [CategoryController::class, 'update'])->name('update');
+            Route::delete('/{category}/delete', [CategoryController::class, 'delete'])->name('delete');
         });
     });
 });
