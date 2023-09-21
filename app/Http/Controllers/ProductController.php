@@ -43,7 +43,7 @@ class ProductController extends Controller
             'featured' => $request->featured,
         ]);
         Toast::success('Product created successfully!');
-        return redirect()->route('dashboard.product.show')->with('product', $product);
+        return redirect()->route('dashboard.product.show',$product)->with('product', $product);
     }
 
     public function show(Product $product)
