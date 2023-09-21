@@ -10,10 +10,10 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'title_image' => ['required', 'mimetypes:image/jpeg,image/png,image/jpg,image/gif','max:512KB'],
+            'title_image' => ['required', 'mimetypes:image/jpeg,image/png,image/jpg,image/gif'],
             'description' => ['required'],
             'featured' => ['nullable','boolean'],
-            'is_active' => ['nullable','boolean'],
+            'status' => ['nullable','boolean'],
         ];
     }
 

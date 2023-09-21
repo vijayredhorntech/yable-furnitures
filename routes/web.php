@@ -9,6 +9,9 @@ use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\TrafficsController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductMediaController;
+use App\Http\Controllers\ProductVariationController;
 use App\Models\Language;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -123,6 +126,25 @@ Route::middleware(['splade'])->group(function () {
             Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
             Route::put('/{category}/update', [CategoryController::class, 'update'])->name('update');
             Route::delete('/{category}/delete', [CategoryController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('product')->name('product.')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('index');
+            Route::get('/show/{product:slug}', [ProductController::class, 'show'])->name('show');
+            Route::get('/create', [ProductController::class, 'create'])->name('create');
+            Route::post('/store', [ProductController::class, 'store'])->name('store');
+            Route::get('/{product:slug}/edit', [ProductController::class, 'edit'])->name('edit');
+            Route::put('/{product:slug}/update', [ProductController::class, 'update'])->name('update');
+            Route::delete('/{product:slug}/delete', [ProductController::class, 'delete'])->name('delete');
+            Route::prefix('image')->name('product.images.')->group(function () {
+                Route::post('/{product:slug}/images', [ProductMediaController::class, 'upload'])->name('upload');
+                Route::delete('/{image}/delete', [ProductMediaController::class, 'delete'])->name('delete');
+            });
+              Route::prefix('variation')->name('product.variation.')->group(function () {
+                Route::post('/{product:slug}/variation', [ProductVariationController::class, 'store'])->name('store');
+                Route::delete('/{variation}/delete', [ProductVariationController::class, 'delete'])->name('delete');
+            });
+
         });
     });
 });

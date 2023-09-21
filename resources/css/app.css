@@ -6,12 +6,12 @@
 
 @layer components {
     .choices__item {
-        color: white;
+        color: black;
     }
 
     .dark .choices .choices__inner {
         background-color: #1F2937;
-        color: white;
+        color: black;
         border-color: rgb(75 85 99 / var(--tw-border-opacity));
     }
 
@@ -35,5 +35,14 @@
 
     :dir(rtl) .choices[data-type*=select-one] .choices__button {
         left: 0;
+    }
+
+    .button-black {
+        padding: 0.25rem;
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity));
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+        border-radius: 0.375rem;
     }
 }
